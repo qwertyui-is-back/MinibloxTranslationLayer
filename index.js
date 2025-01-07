@@ -9,7 +9,7 @@ http.createServer((req, res) => {
 }).listen(80, () => console.log('Node.js web server at 8080 is running...'));
 
 // Get your endpoint online
-ngrok.connect({ addr: 80, '2lUYcgF9YvUS5OB9rdtSzgtKFbM_7sywAJ1tzj1FjvESACGcY': true, server_addr: "civil-actually-eft.ngrok-free.app"})
+ngrok.connect({ addr: 80, authtoken: '2lUYcgF9YvUS5OB9rdtSzgtKFbM_7sywAJ1tzj1FjvESACGcY'})
 	.then(listener => console.log(`Ingress established at: ${listener.url()}`));
 
 const handlers = require('./miniblox/handlers/init.js');
