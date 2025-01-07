@@ -4,13 +4,14 @@ const ngrok = require('@ngrok/ngrok');
 
 // Create webserver
 http.createServer((req, res) => {
-	res.writeHead(200, { 'Content-Type': 'text/html' });
-	res.end('Congrats you have created an ngrok web server');
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.end('Congrats you have created an ngrok web server');
 }).listen(80, () => console.log('Node.js web server at 8080 is running...'));
 
-// Get your endpoint online
-ngrok.connect({ addr: 80, authtoken: '2lUYcgF9YvUS5OB9rdtSzgtKFbM_7sywAJ1tzj1FjvESACGcY'})
-	.then(listener => console.log(`Ingress established at: ${listener.url()}`));
+ngrok.connect({ addr: 80, authtoken: "2lUYcgF9YvUS5OB9rdtSzgtKFbM_7sywAJ1tzj1FjvESACGcY" }) // Use correct key for token
+    .then(listener => console.log(`Ingress established at: ${listener.url}`))
+    .catch(err => console.error("Failed to establish ngrok connection:", err));
+
 
 const handlers = require('./miniblox/handlers/init.js');
 const mc = require('minecraft-protocol');
