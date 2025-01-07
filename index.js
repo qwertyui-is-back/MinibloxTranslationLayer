@@ -9,7 +9,7 @@ http.createServer((req, res) => {
 }).listen(8080, () => console.log('Node.js web server at 8080 is running...'));
 
 ngrok.connect({ addr: 8080, authtoken: "2lUYcgF9YvUS5OB9rdtSzgtKFbM_7sywAJ1tzj1FjvESACGcY" }) // Use correct key for token
-    .then(listener => console.log(`Ingress established at: ${listener.url}`))
+    .then(listener => console.log(`Ingress established at: ${listener.url()}, join this server`))
     .catch(err => console.error("Failed to establish ngrok connection:", err));
 
 
