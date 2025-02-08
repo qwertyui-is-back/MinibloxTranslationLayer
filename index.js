@@ -1,18 +1,4 @@
 const { ClientSocket, SPacketLoginStart } = require('./miniblox/main.js');
-const http = require('http');
-const ngrok = require('@ngrok/ngrok');
-
-// Create webserver
-http.createServer((req, res) => {
-    res.writeHead(200, { 'Content-Type': 'text/html' });
-    res.end('Congrats you have created an ngrok web server');
-}).listen(8080, () => console.log('Node.js web server at 8080 is running...'));
-
-ngrok.connect({ addr: 8080, authtoken: "2lUYcgF9YvUS5OB9rdtSzgtKFbM_7sywAJ1tzj1FjvESACGcY" }) // Use correct key for token
-    .then(listener => console.log(`Ingress established at: ${listener.url()}, join this server`))
-    .catch(err => console.error("Failed to establish ngrok connection:", err));
-
-
 const handlers = require('./miniblox/handlers/init.js');
 const mc = require('minecraft-protocol');
 const fs = require('node:fs');
@@ -58,7 +44,7 @@ async function queue(gamemode, server) {
 			},
 			body: JSON.stringify({
 				clientVersion: VERSION,
-				minigameId: gamemode ?? 'kitpvp'
+				minigameId: gamemode ?? 'skywars'
 			})
 		});
 	} catch (exception) {
@@ -102,7 +88,7 @@ async function connect(client, requeue, gamemode, code) {
 	console.log(`\x1b[36m[*] Connecting to ${fetched.serverId}\x1b[0m`);
 	if (client.ended) return;
 
-	const gameType = gamemode ?? 'kitpvp';
+	const gameType = gamemode ?? 'skywars';
 	ClientSocket.setUrl(`https://${fetched.serverId}.servers.coolmathblox.ca`, void 0);
 	let session = '';
 	try {
