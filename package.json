@@ -3,13 +3,13 @@
   "version": "1.2.6",
   "description": "A middle man to translate Miniblox packets into Minecraft 1.8.9 packets.",
   "main": "index.js",
-  "homepage": "https://github.com/7GrandDadPGN/MinibloxTranslationLayer",
+  "homepage": "https://github.com/qwertyui-is-back/MinibloxTranslationLayer",
   "bugs": {
-    "url": "https://github.com/7GrandDadPGN/MinibloxTranslationLayer/issues"
+    "url": "https://github.com/qwertyui-is-back/MinibloxTranslationLayer/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/7GrandDadPGN/MinibloxTranslationLayer.git"
+    "url": "git+https://github.com/qwertyui-is-back/MinibloxTranslationLayer.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
